@@ -1,0 +1,11 @@
+<app-navigation></app-navigation>
+
+<div>
+    <p>home works!</p>
+        <ul>
+            <li *ngFor="let element of data.results, let i = index">
+                <span>{{element.name}}</span>
+                <img [src]="imgPokemon(i+1)">
+            </li>
+        </ul>
+</div>
