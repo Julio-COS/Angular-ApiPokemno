@@ -1,0 +1,12 @@
+.listPokemon{
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+}
+.listPokemon .item{
+    width: 250px;
+    padding: 20px;
+}
+.listPokemon .item img{
+    width: 100%;
+}
