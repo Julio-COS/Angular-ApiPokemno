@@ -1,16 +1,18 @@
 <p>list-pokemon works!</p>
 <div class="section">
-    <div>
+<!--     <div>
         <button class="button" (click)="llenarDataSelect(1)">Primera Generación</button>
         <button class="button" (click)="llenarDataSelect(2)">Segura Generación</button>
-    </div>
+    </div> -->
 
     <div>
         <div class="listPokemon" >
-            <div class="listPokemon card item" *ngFor="let element of data.results, let i = index">
-                <img [src]="imgPokemon(i+1+getInitialNumber())">
+       <!--      <div class="listPokemon card item" *ngFor="let element of data.results, let i = index">
                 <span>{{element.name}}</span>
-            </div>
+                <span>{{element.url}}</span>
+            </div> -->
+            <span></span>
         </div>
+        <!-- <p>{{getPokemon('https://pokeapi.co/api/v2/pokemon/1')}}</p> -->
     </div>
 </div>

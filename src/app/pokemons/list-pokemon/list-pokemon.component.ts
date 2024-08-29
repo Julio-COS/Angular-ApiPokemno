@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../service/api.service';
+import { ApiPokemonService } from '../../service/api-pokemon.service';
 
 @Component({
   selector: 'app-list-pokemon',
@@ -8,31 +8,26 @@ import { ApiService } from '../../service/api.service';
 })
 export class ListPokemonComponent implements OnInit {
   data:any={};
+  pokemons=[];
 
-  constructor(private apiService: ApiService) { }
+  constructor(private pokeService: ApiPokemonService) { }
    
   ngOnInit():void{
-    this.llenarData();
+    this.getPokemon();
   }
 
-  getInitialNumber():number{
-    return this.apiService.offsetGet();
-  }
-
-  llenarData(){
-    this.apiService.getDataFirstGen().subscribe(data=>{
-      this.data=data;
-    })
-  }
-
-  llenarDataSelect(select:number){
-    switch (select){
-      case 1: this.apiService.getDataFirstGen().subscribe(data=>{this.data=data;}); break;
-      case 2: this.apiService.getDataSecondGen().subscribe(data=>{this.data=data;}); break;
+  getPokemon(): void {
+    let pokemonData;
+    for (let i = 1; i < 2; i++) {
+        this.pokeService.getPokemons(i).subscribe(
+          res=>{
+            console.log(res);
+          },
+          err=>{
+            console.log(err);
+          }
+        );
     }
-  }
-
-  imgPokemon(num:number):string{
-    return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+num+".png"
-  }
+  } 
 }
+  
