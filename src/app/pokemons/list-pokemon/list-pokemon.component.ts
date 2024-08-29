@@ -7,8 +7,7 @@ import { ApiPokemonService } from '../../service/api-pokemon.service';
   styleUrl: './list-pokemon.component.css'
 })
 export class ListPokemonComponent implements OnInit {
-  data:any={};
-  pokemons=[];
+  pokemons:any=[];
 
   constructor(private pokeService: ApiPokemonService) { }
    
@@ -17,11 +16,10 @@ export class ListPokemonComponent implements OnInit {
   }
 
   getPokemon(): void {
-    let pokemonData;
-    for (let i = 1; i < 2; i++) {
+    for (let i = 1; i < 151; i++) {
         this.pokeService.getPokemons(i).subscribe(
           res=>{
-            console.log(res);
+            this.pokemons.push(res);
           },
           err=>{
             console.log(err);

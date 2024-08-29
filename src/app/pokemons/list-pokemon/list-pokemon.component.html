@@ -7,11 +7,19 @@
 
     <div>
         <div class="listPokemon" >
-       <!--      <div class="listPokemon card item" *ngFor="let element of data.results, let i = index">
-                <span>{{element.name}}</span>
-                <span>{{element.url}}</span>
-            </div> -->
-            <span></span>
+            <div class="listPokemon card item" *ngFor="let pokemon of pokemons, let i = index">
+                <span>{{pokemon.id}}</span>
+                <span>{{pokemon.name}}</span>
+                <!-- <span>{{pokemon.sprites.other['official-artwork'].front_default | json}}</span> -->
+                <img [src]="pokemon.sprites.other['official-artwork'].front_default">
+                <p>H:{{pokemon.height}}</p>
+                <p>W:{{pokemon.weight}}</p>
+                <div *ngFor="let type of pokemon.types">
+                    <div>{{type.type.name}}</div>
+                </div>
+            </div>
+           
+            
         </div>
         <!-- <p>{{getPokemon('https://pokeapi.co/api/v2/pokemon/1')}}</p> -->
     </div>
