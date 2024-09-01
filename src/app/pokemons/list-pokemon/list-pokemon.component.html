@@ -7,7 +7,9 @@
 
     <div>
         <div class="listPokemon" >
-            <div class="listPokemon card item" *ngFor="let pokemon of pokemons | paginate:{ itemsPerPage:5, currentPage:p}, let i = index">
+            <div (click)="redirigir(pokemon.id)" class="listPokemon card item" *ngFor="let pokemon of pokemons 
+                | paginate:{ itemsPerPage:5, currentPage:p},
+                let i = index" >
                 <span>{{pokemon.id}}</span>
                 <span>{{pokemon.name}}</span>
                 <!-- <span>{{pokemon.sprites.other['official-artwork'].front_default | json}}</span> -->

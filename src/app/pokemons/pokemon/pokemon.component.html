@@ -1,0 +1,13 @@
+<div class="section">
+    <div class="card pokemon">
+        <span>{{pokemon.id}}</span>
+        <span>{{pokemon.name}}</span>
+        <!-- <span>{{pokemon.sprites.other['official-artwork'].front_default | json}}</span> -->
+        <img [src]="pokemon.sprites.other['official-artwork'].front_default">
+        <p>H:{{pokemon.height}}</p>
+        <p>W:{{pokemon.weight}}</p>
+        <div *ngFor="let type of pokemon.types">
+            <div>{{type.type.name}}</div>
+        </div>
+    </div>
+</div>

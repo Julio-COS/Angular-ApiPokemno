@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiPokemonService } from '../../service/api-pokemon.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-pokemon',
@@ -9,7 +10,9 @@ import { ApiPokemonService } from '../../service/api-pokemon.service';
 export class ListPokemonComponent implements OnInit {
   pokemons:any=[];
   cantidad:number=151;
-  constructor(private pokeService: ApiPokemonService) { }
+  p: number = 1;
+
+  constructor(private pokeService: ApiPokemonService, private router: Router) { }
    
   ngOnInit():void{
     this.getPokemon();
@@ -17,7 +20,6 @@ export class ListPokemonComponent implements OnInit {
   llenarDataSelect(){
     
   }
-  p: number = 1;
 
 
   getPokemon(): void {
@@ -32,5 +34,9 @@ export class ListPokemonComponent implements OnInit {
         );
     }
   } 
+
+  redirigir(id:string){
+    this.router.navigate(['pokemons/'+id]);
+  }
 }
   

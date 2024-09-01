@@ -1,0 +1,7 @@
+.section{
+    display: flex;
+    justify-content: center;
+}
+.card.pokemon{
+    width: 500px;
+}
